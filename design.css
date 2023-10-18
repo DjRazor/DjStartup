@@ -3,3 +3,11 @@ p {
     font-family: sans-serif;
 }
 
+#navbarToggler:hover + .collapse.navbar-collapse{
+
+    display: table;
+
+}
+.collapse.navbar-collapse {
+    display: none;
+}
