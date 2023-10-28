@@ -2,7 +2,11 @@ p {
     font-family: sans-serif;
 }
 
-
+#quote {
+  text-align: center;
+  background-color: #d3d3d3;
+  padding: 10px;
+}
 
 .footer {
     padding: 20px;

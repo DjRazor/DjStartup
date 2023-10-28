@@ -44,7 +44,12 @@
     <hr />
   </header>
         <main>
-          <p>Welcome, <strong></strong>!</p>
+          <div id="displayArea"></div>
+          
+          <script>
+            const userInput = localStorage.getItem("userInput");
+            document.getElementById("displayArea").textContent = `Welcome, ${userInput}!`;
+    m     </script>
             <table>
               <thead>
                 <tr>
@@ -71,7 +76,10 @@
                 </tr>
               </tbody>
             </table>
-
+            <div id="quote">
+              <div>You don't have to be great to start, but you have to start to be great.</div>
+              <div>- Zig Ziglar</div>
+            </div>
           </main>
     </body>
     <footer class="site-footer">

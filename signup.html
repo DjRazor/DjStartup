@@ -46,14 +46,29 @@
       <main>
         <form method="get" action="profile.html">
             <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Your name here" />
+            <input type="text" id="userInput" placeholder="Your name here" />
             <label for="pw">Password</label>
             <input type="text" id="pw" placeholder="Your password" />
-            <button>Finish & Submit</button>
-
+            <button onclick="saveInput()">Finish & Submit</button>
+          </form>
+            <script>
+              function saveInput() {
+                  // Get the input value
+                  const userInput = document.getElementById("userInput").value;
+                  
+                  // Store the input in localStorage (you can use other methods like cookies or server storage)
+                  localStorage.setItem("userInput", userInput);
+      
+                  // Redirect to the second HTML page
+                  window.location.href = "page2.html";
+              }
+            </script>
             
             <!--<button type="submit">Login</button>-->
-        </form>
+            <div id="quote">
+              <div>The future depends on what you do today.</div>
+              <div>- Mahatma Ghandi</div>
+            </div>
       </main>
     </body>
     <footer class="site-footer">
