@@ -2,6 +2,25 @@ p {
     font-family: sans-serif;
 }
 
+.start-screen{
+  position: relative;
+  height: 350px;
+  width: auto;
+  overflow: hidden;
+}
+
+.start-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://wallpapercave.com/wp/wp1904789.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 #quote {
   text-align: center;
   background-color: #d3d3d3;
@@ -186,11 +205,6 @@ p {
 .scroller {
   margin: auto;
   max-width: 1000px;
-  display: grid;
-  place-content: center;
-  font-family: system-ui;
-  font-size: 1.125rem;
-  background-color: white;
 }
 
 .scroller__inner {
@@ -272,3 +286,5 @@ p {
 }
 
 /* END of infinite scroll animation */
+
+
