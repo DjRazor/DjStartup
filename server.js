@@ -10,8 +10,22 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-apiRouter.get('/user', (req, res) => {
-    
+let userList = []
+
+apiRouter.get('/data', (req, res) => {
+    res.json(userList);
+})
+
+apiRouter.post('/store', (req, res) => {
+    const userInput = req.body;
+
+    if (!userInput || !userInput.data) {
+        return res.status(400).json({ error: 'Data is missing in the request.' });
+    }
+
+    userList.push(userInput);
+    res.json({ message: 'Data stored successfully.' });
+
 })
 
 app.use('/users', (_req, res) => {
@@ -23,6 +37,10 @@ app.use('/users', (_req, res) => {
   app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
   });
+
+  apiRouter.use((_req, res) => {
+    res.sendFile('index.html', { root: 'public' })
+  })
   
   app.listen(port, () => {
     console.log(`Listening on port ${port}`);
