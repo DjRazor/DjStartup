@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="index.js"></script>
 
   </head>
   <body>
@@ -93,7 +94,7 @@
                     const password = document.getElementById('signUpPassword').value;
             
                     // Send a POST request to the Express API
-                    fetch('http://localhost:3000/api/store', {
+                    fetch('/api/store', {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',

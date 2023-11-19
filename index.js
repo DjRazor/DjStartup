@@ -12,7 +12,7 @@ app.use(`/api`, apiRouter);
 
 let userList = []
 
-apiRouter.get('/data', (req, res) => {
+apiRouter.get('/data', (_req, res) => {
     res.json(userList);
 })
 

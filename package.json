@@ -4,7 +4,7 @@
   "description": "For my startup, I want to create a website to display my video editing and programming skills. This will be a platform to connect me with people who are in a programming class or starting their own company/business. In essence, this startup will be a startup for other startups. I will edit and/or teach how I am able to do what I do.",
   "main": "main.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
