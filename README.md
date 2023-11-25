@@ -37,16 +37,16 @@ The program will send out reminder emails/messages as well as promotional offers
 
 ## JavaScript deliverable
 - Login: Logging in will take you to the pricing page and display the username.
-- Database: Displays a random motivational/inspiring quote at the bottom of every page.
+- Database: Stores user's username and displays it on the pricing page.
 - WebSocket: The message box to message me via email will be set up eventually as well as a custom GPT bot that will answer questions about my services.
 - Application logic: Infinite scrolling visual to display AI art and topics for tutoring.
 
 ## Service deliverable
 - Node.js/Express HTTP service: Express web service set up.
-- Static middleware for frontend: Completed via public route.
-- Calls to third-party endpoints: 
+- Static middleware for frontend: Completed via public folder route.
+- Calls to third-party endpoints: Displays a random motivational/inspiring quote at the bottom of every page using an API.
 - Backend service endpoints: Stores login information on local API (for now)
-- Frontend calls service endpoints: 
+- Frontend calls service endpoints: GET and POST functions were implemented for storing and retrieving login information.
 
 ## DB deliverable
 - MongoDB Atlas database created
