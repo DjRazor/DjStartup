@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+const config = require('./dbConfig.json');
+const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 app.use(express.json());
