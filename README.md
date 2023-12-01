@@ -49,6 +49,6 @@ The program will send out reminder emails/messages as well as promotional offers
 - Frontend calls service endpoints: GET and POST functions were implemented for storing and retrieving login information.
 
 ## DB deliverable
-- MongoDB Atlas database created
-- Endpoints for data
-- Stores data in MongoDB
+- MongoDB Atlas database created: completed!
+- Provides backend endpoints for manipulating application data: calls /api/messages to post the email and message on the signup page.
+- Stores application data in MongoDB: stores the email and message submitted from the signup page in a MongoDB collection.
