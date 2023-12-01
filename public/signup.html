@@ -121,19 +121,55 @@
         <div class="container" style="align-items: center;">
           <div class="row">
           <div style="text-align: center; margin: auto;">
+            <form method="post" id="EnterMessage">
             <label for="questions"><h3>Still have questions?</h3></label>
             <h5>Email us below!</h6>
           </div>
-          <input type="text" placeholder="Your email here" style="width: 700px; margin: auto; margin-bottom: 10px;" />
+          <input id="email_input" type="text" placeholder="Your email here" style="width: 700px; margin: auto; margin-bottom: 10px;" />
           
           <div class="row">
-            <textarea style="width: 700px; height: 125px; margin: auto; margin-bottom: 15px;" placeholder="Enter message here"></textarea>
+            <textarea id="box_message" style="width: 700px; height: 125px; margin: auto; margin-bottom: 15px;" placeholder="Enter message here"></textarea>
           </div>
           <div class="row">
-            <button class="btn btn-primary" style="margin: auto; margin-bottom: 25px; width: 700px;">Submit</button>
+            <button class="btn btn-primary" style="margin: auto; margin-bottom: 25px; width: 700px;" type="submit">Submit</button>
           </div>
           </div>
-        
+          <div id="MessageConf"></div>
+        </form>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const SendAMessage = document.getElementById('EnterMessage');
+                const MessageConf = document.getElementById('MessageConf');
+
+                SendAMessage.addEventListener('submit').addEventListener('submit', function (event) {
+                    event.preventDefault();
+            
+                    const box_message = document.getElementById('box_message');
+                    const email_input = document.getElementById('email_input');
+            
+                    // Send a POST request to the Express API
+                    fetch('/api/save', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({ email: email_input, message: box_message}),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      MessageConf.innerText = data.message;
+                    })
+                    .catch(error => {
+                      MessageConf.innerText = 'Error occurred while sending data.';
+                      console.error('Error:', error);
+                    });
+                  });
+
+              
+
+            });
+          </script>
+
         </div>
             <script>
               function saveInput() {

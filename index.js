@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
-
-const config = require('./dbConfig.json');
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const DB = require('./database.js');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
@@ -13,11 +11,11 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-let userList = []
+let userList = [];
 
 apiRouter.get('/data', (_req, res) => {
     res.json(userList);
-})
+});
 
 apiRouter.post('/store', (req, res) => {
     const userInput = req.body;
@@ -29,7 +27,18 @@ apiRouter.post('/store', (req, res) => {
     userList.push(userInput);
     res.json({ message: 'Data stored successfully.' });
 
-})
+});
+
+apiRouter.post('/save', (req, res) => {
+  const userMessage = req.body;
+  if (!userMessage.email) {
+    return res.status(400).json({ error: 'Email is missing from the request. Please add your email.' });
+  }
+  if (!userMessage.message) {
+    return res.status(400).json({ error: 'Message is missing. Please add a message.' });
+  }
+  DB.addMessage(req.body);
+});
 
 app.use('/users', (_req, res) => {
     res.sendFile('profile.html', { root: 'public'});
