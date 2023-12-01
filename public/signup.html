@@ -121,7 +121,7 @@
         <div class="container" style="align-items: center;">
           <div class="row">
           <div style="text-align: center; margin: auto;">
-            <form method="post" id="EnterMessage">
+            <form method="get" id="EnterMessage">
             <label for="questions"><h3>Still have questions?</h3></label>
             <h5>Email us below!</h6>
           </div>
@@ -134,21 +134,20 @@
             <button class="btn btn-primary" style="margin: auto; margin-bottom: 25px; width: 700px;" type="submit">Submit</button>
           </div>
           </div>
-          <div id="MessageConf"></div>
-        </form>
+          <div id="MessageConf" style="text-align: center; margin-bottom: 25px; background-color: rgb(22, 242, 77); border-radius: 25%;"></div>
           <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const SendAMessage = document.getElementById('EnterMessage');
                 const MessageConf = document.getElementById('MessageConf');
 
-                SendAMessage.addEventListener('submit').addEventListener('submit', function (event) {
+                SendAMessage.addEventListener('submit', function (event) {
                     event.preventDefault();
             
-                    const box_message = document.getElementById('box_message');
-                    const email_input = document.getElementById('email_input');
+                    const box_message = document.getElementById('box_message').value;
+                    const email_input = document.getElementById('email_input').value;
             
                     // Send a POST request to the Express API
-                    fetch('/api/save', {
+                    fetch('/api/messages', {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',
@@ -164,11 +163,10 @@
                       console.error('Error:', error);
                     });
                   });
-
-              
-
             });
           </script>
+        </form>
+          
 
         </div>
             <script>

@@ -21,7 +21,7 @@ apiRouter.post('/store', (req, res) => {
     const userInput = req.body;
 
     if (!userInput || !userInput.data) {
-        return res.status(400).json({ error: 'Data is missing in the request.' });
+        return res.status(400).json({ error: 'Data is missing in the request.', message: 'Data is missing in the request.' });
     }
 
     userList.push(userInput);
@@ -29,16 +29,22 @@ apiRouter.post('/store', (req, res) => {
 
 });
 
-apiRouter.post('/save', (req, res) => {
+
+
+apiRouter.post('/messages', (req, res) => {
   const userMessage = req.body;
   if (!userMessage.email) {
-    return res.status(400).json({ error: 'Email is missing from the request. Please add your email.' });
+    return res.status(400).json({ message: 'Email is missing from the request. Please add your email.' });
   }
   if (!userMessage.message) {
-    return res.status(400).json({ error: 'Message is missing. Please add a message.' });
+    return res.status(400).json({ message: 'Message is missing. Please add a message.' });
   }
-  DB.addMessage(req.body);
+  res.json({ message: 'Data sent sucessfully.' });
+  DB.addMessage(userMessage);
+  
 });
+
+
 
 app.use('/users', (_req, res) => {
     res.sendFile('profile.html', { root: 'public'});
