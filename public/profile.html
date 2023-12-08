@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="signup.js"></script>
     
   </head>
   <body>
@@ -51,10 +52,21 @@
           <div id="displayArea"></div>
           
           <script>
-            const userInput = localStorage.getItem("userInput");
+            const userInput = localStorage.getItem("loginUsername");
             document.getElementById("displayArea").textContent = `Welcome, ${userInput}!`;
          </script>
-
+  <button id="signOutButton" onclick="deleteUser()">Sign out</button>
+  <script>
+    function deleteUser(){
+      localStorage.removeItem('loginUsername');
+      fetch(`/api/auth/logout`, {
+      method: 'delete',
+    });
+    document.getElementById('displayArea').textContent = `You signed out. Go back to the sign in page to sign in again.`;
+    var button = document.getElementById('signOutButton');
+    button.style.display = "none";
+    }
+  </script>
 
   <h1 class="main__heading">Pricing</h1>
   <div class="main__cards cards">
@@ -155,6 +167,7 @@
         </div>
       </div>
 </footer>
+
 </html>
 
 

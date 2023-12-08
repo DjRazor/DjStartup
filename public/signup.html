@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="index.js"></script>
+    
 
   </head>
   <body>
@@ -51,19 +51,34 @@
       <main>
         <div class="container">
          <div class="row" style="margin-top: 25px;">
-          <div class="col-sm-6">
-            
-            
-            <form method="get" action="profile.html">
-              <h1>Sign In</h1>
+          <div class="col-sm-6" id="loginControls">
+              <h1>Sign Up/In</h1>
               <div class="row" style="margin: auto; padding-right: 50px;">
               <label for="loginUsername" style="margin-top: 10px;">Username</label>
               <input type="text" id="loginUsername" placeholder="Your username" />
               <label for="loginPassword" style="margin-top: 10px;">Password</label>
-              <input type="text" id="loginPassword" placeholder="Your password" />
-              <button onclick="saveInput()" class="btn btn-outline-success" style="margin-top: 25px;">Submit</button>
+              <input type="password" id="loginPassword" placeholder="Your password" />
+              <div class="row">
+                <button onclick="createUser()" class="btn btn-outline-success" style="margin-top: 25px;">Submit</button>
+                <button onclick="loginUser()" class="btn btn-outline-secondary" style="margin-top: 25px;">Login</button>
+              </div>
+              <div id="playControls" style="display: none">
+                <div id="playerName"></div>
+                <button type="button" class="btn btn-primary" onclick="prof()">Play</button>
+                <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
+              </div>
             </div>
-            </form>
+          <!-- Error dialog -->
+        <div class="modal fade" id="msgModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-dark">
+              <div class="modal-body">error message here</div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
           
           </div>
           <div class="col-sm-6">
@@ -134,7 +149,7 @@
             <button class="btn btn-primary" style="margin: auto; margin-bottom: 25px; width: 700px;" type="submit">Submit</button>
           </div>
           </div>
-          <div id="MessageConf" style="text-align: center; margin-bottom: 25px; background-color: rgb(22, 242, 77); border-radius: 25%;"></div>
+          <div id="MessageConf" class="btn-outline-secondary"></div>
           <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const SendAMessage = document.getElementById('EnterMessage');
@@ -169,19 +184,6 @@
           
 
         </div>
-            <script>
-              function saveInput() {
-                  // Get the input value
-                  const userInput = document.getElementById("userInput").value;
-                  
-                  // Store the input in localStorage (you can use other methods like cookies or server storage)
-                  localStorage.setItem("userInput", userInput);
-      
-                  // Redirect to the second HTML page
-                  window.location.href = "page2.html";
-              }
-            </script>
-            
             <!--<button type="submit">Login</button>-->
             <div id="quote"></div>
             <script src="quoteApi.js"></script>
@@ -237,4 +239,6 @@
         </div>
       </div>
 </footer>
+<script src="index.js"></script>
+    <script src="signup.js"></script>
 </html>
