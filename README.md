@@ -52,3 +52,9 @@ The program will send out reminder emails/messages as well as promotional offers
 - MongoDB Atlas database created: completed!
 - Provides backend endpoints for manipulating application data: calls /api/messages to post the email and message on the signup page.
 - Stores application data in MongoDB: stores the email and message submitted from the signup page in a MongoDB collection.
+
+## Login deliverable
+- Supports new user registration: 
+- Supports existing user authentication: 
+- Stores and retrieves credentials in MongoDB: 
+- Restricts application functionality based upon authentication: 
