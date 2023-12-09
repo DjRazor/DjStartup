@@ -41,12 +41,11 @@ async function loginUser() {
     if (response.ok) {
       localStorage.setItem('loginUsername', userName);
       window.location.href = 'profile.html';
+      console.log('SUCCESS');
     } else {
       const body = await response.json();
-      const modalEl = document.querySelector('#msgModal');
-      modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
-      const msgModal = new bootstrap.Modal(modalEl, {});
-      msgModal.show();
+      alert(`⚠ Error: ${body.msg}`);
+      console.log('FAIL');
     }
   }
 
