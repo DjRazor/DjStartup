@@ -32,7 +32,7 @@ let userList = [];
 // POTENTIAL LOGIN CODE
 apiRouter.post('/auth/create', async (req, res) => {
   if (await DB.getUser(req.body.email)) {
-    res.status(409).send({ msg: 'Existing user' });
+    res.status(409).send({ msg: 'Existing username' });
   } else {
     const user = await DB.createUser(req.body.email, req.body.password);
 
@@ -55,7 +55,7 @@ apiRouter.post('/auth/login', async (req, res) => {
       return;
     }
   }
-  res.status(401).send({ msg: 'Unauthorized' });
+  res.status(401).send({ msg: 'Unauthorized: wrong password or username.' });
 });
 
 // DeleteAuth token if stored in cookie
@@ -85,7 +85,7 @@ secureApiRouter.use(async (req, res, next) => {
   if (user) {
     next();
   } else {
-    res.status(401).send({ msg: 'Unauthorized' });
+    res.status(401).send({ msg: 'Unauthorized here' });
   }
 });
 
@@ -114,6 +114,9 @@ apiRouter.post('/store', (req, res) => {
 
 apiRouter.post('/messages', (req, res) => {
   const userMessage = req.body;
+  if (!userMessage.email && !userMessage.message) {
+    return res.status(400).json({ message: 'Email and message are missing.' });
+  }
   if (!userMessage.email) {
     return res.status(400).json({ message: 'Email is missing from the request. Please add your email.' });
   }
