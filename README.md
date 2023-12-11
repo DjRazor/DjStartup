@@ -57,4 +57,4 @@ The program will send out reminder emails/messages as well as promotional offers
 - Supports new user registration: Allows new users to sign up.
 - Supports existing user authentication: Prevents the same usernames from being used and recognizes existing users when logging in.
 - Stores and retrieves credentials in MongoDB: Stores usernames and encrypted passwords in my MongoDB database. Retrieves user information when logging in and displays their username on the profile page.
-- Restricts application functionality based upon authentication: In the works!
+- Restricts application functionality based upon authentication: If signed in, the user can access the about page and profile page. If logged out, they can only access the home, sign up/in, and github pages.
