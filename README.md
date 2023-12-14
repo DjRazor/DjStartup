@@ -64,3 +64,6 @@ The program will send out reminder emails/messages as well as promotional offers
 - Frontend makes WebSocket connection: Check! (shows if the user has connected and when they are disconnected)
 - Data sent over WebSocket connection: Check! (sendMessage function in liveChat.js)
 - WebSocket data displayed in the application interface: Div element is updated via an event listener to display all existing messages and future messages.
+
+## React deliverable
+TBD...
