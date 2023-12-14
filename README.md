@@ -58,3 +58,9 @@ The program will send out reminder emails/messages as well as promotional offers
 - Supports existing user authentication: Prevents the same usernames from being used and recognizes existing users when logging in.
 - Stores and retrieves credentials in MongoDB: Stores usernames and encrypted passwords in my MongoDB database. Retrieves user information when logging in and displays their username on the profile page.
 - Restricts application functionality based upon authentication: If signed in, the user can access the about page and profile page. If logged out, they can only access the home, sign up/in, and github pages.
+
+## WebSocket deliverable
+- Backend listens for WebSocket connection: Check! (adjusts websocket protocol depending on HTTP use)
+- Frontend makes WebSocket connection: Check! (shows if the user has connected and when they are disconnected)
+- Data sent over WebSocket connection: Check! (sendMessage function in liveChat.js)
+- WebSocket data displayed in the application interface: Div element is updated via an event listener to display all existing messages and future messages.
