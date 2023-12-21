@@ -21,13 +21,19 @@ fetch(url)
 
 ### Final Exam Notes:
 1. What ports are used for HTTP, HTTPS, SSH?
-- 
+- HTTP: 80
+- HTTPS: 443
+- SSH: 22 (can be changed)
 2. What do HTTP status codes in the 300, 400, 500 range indicate?
-- 
+- 300: Redirection
+- 400: Client errors
+- 500: Server errors
 3. What does the HTTP header content-type allows you to do?
-- 
+- To indicate the media type or MIME (Multipurpose Internet Mail Extensions) type of the resource being sent in the HTTP message. It specifies the type of data that is actually sent in the body of the request or response, allowing the receiving application to correctly interpret and process the content. 
+  - text/html: HTML content
+  - application/json: JSON data
 4. What do the following attributes of a cookie do?
-- Domain: 
+- Domain: Specifies the domain for which the cookie is valid. The browser sends the cookie only to the specified domain and its subdomains.  
 - Path: 
 - SameSite: 
 - HTTPOnly: 
