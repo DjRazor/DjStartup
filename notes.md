@@ -34,11 +34,12 @@ fetch(url)
   - application/json: JSON data
 4. What do the following attributes of a cookie do?
 - Domain: Specifies the domain for which the cookie is valid. The browser sends the cookie only to the specified domain and its subdomains.  
-- Path: 
-- SameSite: 
+- Path: Defines the subset of URLs on the domain for which the cookie is valid. The cookie is sent only to requests that match the specified path.
+Example: If a cookie is set with the path /products, it is valid for URLs like example.com/products/item1 but not for URLs like example.com/about
+- SameSite: Controls when the browser includes cookies in a request. It is a security measure to mitigate cross-site request forgery (CSRF) attacks.
 - HTTPOnly: 
 5. Assuming the following Express middleware, what would be the console.log output for an HTTP GET request with a URL path of /foo/bar?
--
+- 
 6. Given the following Express service code: What does the following JavaScript fetch return?
 -
 7. Given the following MongoDB query
@@ -47,13 +48,14 @@ fetch(url)
 select all of the matching documents.
 -
 8. How should you store user passwords in a database?
--
+- Encrypted (not plain text)
+- Adding a salt would be good too
 9. Assuming the following Node.js service code is executing with websockets, what will be logged to the console of the web browser?
 -
 10. What is the WebSocket protocol used for?
--
+- Communication channels over a single, long-lived TCP connection
 11. What is JSX and how are the curly braces rendered?
--
+- It allows you to write HTML elements and components in a syntax that looks similar to XML or HTML within your JavaScript code
 12. Assuming a HTML document with a 
 <div id="root"></div>
 element, what content will the following React component generate?
@@ -72,7 +74,7 @@ element, what content will the following React component generate?
       const root = ReactDOM.createRoot(document.getElementById('root'));
       root.render(<App />);
 -
-13. Assuming a HTML document with a 
+13. Assuming an HTML document with a 
 <div id="root"></div>
 element, what content will the following React component generate?
     function Numbers() { 
@@ -100,9 +102,9 @@ function Example() {
 }
 -
 15. What are React Hooks used for?
--
+- React hooks are functions that enable functional components in React to use state and lifecycle features that were previously available only in class components
 16. What is the useEffect hook used for?
--
+- Enables performing side effects in functional components, such as data fetching, subscriptions, or manually changing the DOM
 17. What does this code do?
 export default function App() {
   return (
@@ -120,12 +122,12 @@ export default function App() {
 }
 -
 18. What role does npm play in web development?
--
+- Provides a centralized repository for JavaScript packages and tools. It is the default package manager for Node.js
 19. What does package.json do in a npm project?
--
+- Serves as a central configuration file that provides information about the project, its dependencies, and various scripts or commands associated with the project
 20. What does the fetch function do?
--
+- Fetching URL's for API's
 21. What does node.js do?
--
+- Runtime environment for executing JavaScript code on the server side
 22. What does Vite do?
--
+- Vite is a build tool and development server designed for modern web development. It is specifically tailored for building frontend applications using modern JavaScript frameworks (React)
